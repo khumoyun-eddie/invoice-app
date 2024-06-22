@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Spartan";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("./fonts/league-spartan-v5-latin-500.woff2") format("woff2"),
+      url("./fonts/league-spartan-v5-latin-500.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "Spartan";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("./fonts/league-spartan-v5-latin-700.woff2") format("woff2"),
+      url("./fonts/league-spartan-v5-latin-700.woff") format("woff");
+  }
+
+  html {
+    font-family: "Spartan", system-ui, sans-serif;
+  }
+  body {
+    @applybg- [#373B53];
+  }
+}
+
+@layer utilities {
+  /* TYPOGRAPHY */
+  h1 {
+    @apply text-xl;
+  }
+
+  h2 {
+    @apply text-lg;
+  }
+
+  h3 {
+    @apply text-base;
+  }
+
+  /* UTILITIES */
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+
+  .flex-start {
+    @apply flex items-center justify-start;
+  }
+
+  .main-container {
+    @apply w-full bg-white rounded-lg;
+  }
+
+  .loader {
+    width: 50px;
+    height: 24px;
+    background: radial-gradient(circle closest-side, currentColor 90%, #0000) 0% 50%,
+      radial-gradient(circle closest-side, currentColor 90%, #0000) 50% 50%,
+      radial-gradient(circle closest-side, currentColor 90%, #0000) 100% 50%;
+    background-size: calc(100% / 3) 12px;
+    background-repeat: no-repeat;
+    animation: loader 1s infinite linear;
+  }
+
+  @keyframes loader {
+    20% {
+      background-position: 0% 0%, 50% 50%, 100% 50%;
+    }
+    40% {
+      background-position: 0% 100%, 50% 0%, 100% 50%;
+    }
+    60% {
+      background-position: 0% 50%, 50% 100%, 100% 0%;
+    }
+    80% {
+      background-position: 0% 50%, 50% 50%, 100% 100%;
+    }
+  }
+}
+
+@layer components {
+  .nav-item {
+    @apply block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-100 tablet:hover:bg-transparent tablet:border-0 tablet:p-0 dark:text-gray-400 tablet:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white tablet:dark:hover:bg-transparent dark:border-gray-700;
+  }
+  .auth-input {
+    @apply bg-gray-100 border border-gray-300 text-gray-100 text-body-1 rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white;
+  }
+}
